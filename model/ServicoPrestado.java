@@ -67,11 +67,14 @@ public class ServicoPrestado {
 		return pet;
 	}
 
-
 	public void setPet(Pet pet) {
 		this.pet = pet;
 	}
 
+	//metodo novo pra evitar navegar entre gets
+	public String getNomeDonoPet(){
+		return getPet().getNomeDono();
+	}
 
 	@Override
 	public int hashCode() {

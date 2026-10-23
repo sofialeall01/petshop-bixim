@@ -6,6 +6,7 @@ public class Pet {
     private int id;
     private String nome;
     private String especie;
+	private String raca;
     // Composição: O Pet e dono do Cliente
     private Cliente cliente;
     private LocalDate nascimento;
@@ -14,49 +15,51 @@ public class Pet {
     public Pet() {
     }
 
-
-	public Pet(int id, String nome, String especie, Cliente cliente, LocalDate nascimento) {
+	public Pet(int id, String nome, String especie,String raca, Cliente cliente, LocalDate nascimento) {
 		this.id = id;
 		this.nome = nome;
 		this.especie = especie;
+		this.raca = raca;
 		this.nascimento = nascimento;
         // O cliente e dono do pet, então criamos um novo objeto Cliente com os mesmos atributos do cliente passado como parâmetro
         this.cliente = new Cliente(cliente.getId(), cliente.getNome(), cliente.getTelefone());
 	}
 
-
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
 	public String getEspecie() {
 		return especie;
 	}
-
 
 	public void setEspecie(String especie) {
 		this.especie = especie;
 	}
 
+	public String getRaca() {return raca;}
+
+	public void setRaca(String raca) {this.raca = raca;}
 
 	public Cliente getCliente() {
 		return cliente;
+	}
+
+	//metodo novo pra evitar navegar entre gets
+	public String getNomeDono(){
+		return getCliente().getNome();
 	}
 
 
@@ -64,16 +67,13 @@ public class Pet {
 		this.cliente = cliente;
 	}
 
-
 	public LocalDate getNascimento() {
 		return nascimento;
 	}
 
-
 	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -86,7 +86,6 @@ public class Pet {
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -122,12 +121,10 @@ public class Pet {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Pet id:" + id + ", nome:" + nome + ", especie:" + especie + ", cliente:" + cliente + ", nascimento:"
 				+ nascimento + "";
 	}
 
-    
 }
