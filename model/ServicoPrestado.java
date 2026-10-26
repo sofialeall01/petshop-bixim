@@ -14,16 +14,22 @@ public class ServicoPrestado {
 	}
 
 
-	public ServicoPrestado(int id, Servico servico, LocalDate data, double valorCobrado, Pet pet) {
-		this.id = id;
-		this.servico = servico;
-		this.data = data;
-		this.valorCobrado = valorCobrado;
-		this.pet = pet;
-	}
+	
 
 
-	public int getId() {
+	public ServicoPrestado(int id, LocalDate data, double valorCobrado, Pet pet, Servico servico) {
+        this.id = id;
+        this.data = data;
+        this.valorCobrado = valorCobrado;
+        this.pet = pet;
+        this.servico = servico;
+    }
+
+
+
+
+
+    public int getId() {
 		return id;
 	}
 
