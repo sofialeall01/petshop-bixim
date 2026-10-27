@@ -72,7 +72,7 @@ public class ServicoPrestadoRepository
                 int idPet = Integer.parseInt(dados[4].trim());
                 Pet pet = petRepository.buscarPorId(idPet);
                 Servico servico = servicoRepository.buscarPorId(idServico);
-                ServicoPrestado servicoPrestado = new ServicoPrestado();
+                ServicoPrestado servicoPrestado = new ServicoPrestado(id,data,valorCobrado,pet,servico);
                 adicionar(servicoPrestado);
             }
 

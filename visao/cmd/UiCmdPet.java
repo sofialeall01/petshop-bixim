@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 import controller.ClienteController;
 import controller.PetController;
-import model.Cliente;
 import model.Pet;
 
 public class UiCmdPet {

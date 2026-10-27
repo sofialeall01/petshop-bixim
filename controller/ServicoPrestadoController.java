@@ -87,7 +87,9 @@ public class ServicoPrestadoController {
        return servicosEncontrados;
     }
 
-    public void adcionar(int id, double valorCobrado, LocalDate data, Pet pet, Servico servico){
+    public void adcionar(int id, double valorCobrado, LocalDate data,int idServico, int idPet){
+        Pet pet = repositoryPet.buscarPorId(idPet);
+        Servico servico = repositoryServico.buscarPorId(idServico);
         ServicoPrestado sp = new ServicoPrestado(id,data,valorCobrado, pet, servico);
         repository.adicionar(sp);
     }
