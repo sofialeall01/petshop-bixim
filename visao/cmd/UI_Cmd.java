@@ -31,11 +31,11 @@ public class UI_Cmd {
             switch (opcao) {
                 case 1:
                     System.out.println("\n--- Gerenciando Clientes ---");
-                    //uiCmdCliente.iniciar(); 
+                    uiCmdCliente.iniciar(); 
                     break;
                  case 2:
                     System.out.println("\n--- Gerenciando Pets ---");
-                    //uiCmdPet.iniciar(); 
+                    uiCmdPet.iniciar(); 
                     break;
                  case 3:
                     System.out.println("\n--- Gerenciando Servicos ---");
