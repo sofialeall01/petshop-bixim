@@ -39,7 +39,7 @@ public class UI_Cmd {
                     break;
                  case 3:
                     System.out.println("\n--- Gerenciando Servicos ---");
-                    //uiCmdServico.iniciar(); 
+                    uiCmdServico.iniciar(); 
                     break;
                  case 4:
                     System.out.println("\n--- Gerenciando Servicos Prestados ---");

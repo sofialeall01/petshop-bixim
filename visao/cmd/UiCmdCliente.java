@@ -19,11 +19,11 @@ public class UiCmdCliente {
         int opcao = 0;
      do{
           System.out.println("\n╔══════════════════════════════════════╗");
-            System.out.println("║            GERENCIAR PETS            ║");
+            System.out.println("║          GERENCIAR CLIENTES          ║");
             System.out.println("╠══════════════════════════════════════╣");
-            System.out.println("║  1 - Remover Cliente                     ║");
-            System.out.println("║  2 - Listar Clientes                     ║");
-            System.out.println("║  3 - Buscar Cliente                      ║");
+            System.out.println("║  1 - Remover Cliente                 ║");
+            System.out.println("║  2 - Listar Clientes                 ║");
+            System.out.println("║  3 - Buscar Cliente                  ║");
             System.out.println("║  0 - Voltar ao Menu Principal        ║");
             System.out.println("╚══════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
