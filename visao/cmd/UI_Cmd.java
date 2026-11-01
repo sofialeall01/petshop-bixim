@@ -15,7 +15,7 @@ public class UI_Cmd {
             UiCmdPet uiCmdPet,
             UiCmdServico uiCmdServico,
             UiCmdServicoPrestado uiCmdServicoPrestado) {
-        teclado = new Scanner(System.in);
+        this.teclado = new Scanner(System.in);
         this.uiCmdCliente = uiCmdCliente;
         this.uiCmdPet = uiCmdPet;
         this.uiCmdServico = uiCmdServico;
@@ -24,9 +24,9 @@ public class UI_Cmd {
 
     public void iniciar() {
         int opcao = 0;
-        do {;
+        do {
             menu();
-             opcao = teclado.nextInt();
+            opcao = teclado.nextInt();
 
             switch (opcao) {
                 case 1:

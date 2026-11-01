@@ -11,17 +11,16 @@ public class UiCmdServico {
     private Scanner teclado;
     private ServicoController controller;
 
-   
-
 
     public UiCmdServico(ServicoController controller) {
         this.controller = controller;
+        this.teclado = new Scanner(System.in);
     }
 
     public void iniciar(){
         int opcao = 0;
-     do{
-          System.out.println("\n╔══════════════════════════════════════╗");
+        do{
+            System.out.println("\n╔══════════════════════════════════════╗");
             System.out.println("║          GERENCIAR SERVICOS          ║");
             System.out.println("╠══════════════════════════════════════╣");
             System.out.println("║  1 - Adicionar Pet                   ║");
@@ -31,9 +30,10 @@ public class UiCmdServico {
             System.out.println("║  0 - Voltar ao Menu Principal        ║");
             System.out.println("╚══════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
+            opcao = teclado.nextInt();
 
             switch (opcao) {
-                case 1: adcionar(); break;
+                case 1: adicionar(); break;
                 
                 case 2: apagar(); break;
 
@@ -45,12 +45,10 @@ public class UiCmdServico {
                     System.out.println("Opcao invalida");
                     break;
             }
-     
-    }while(opcao !=0);
-    
-}
+        }while(opcao !=0);
+    }
 
-    private void adcionar(){
+    private void adicionar(){
         System.out.println("Informe o ID do servico: ");
         int id = teclado.nextInt();
         System.out.println("Informe a descricao do servico: ");

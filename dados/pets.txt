@@ -1,0 +1,5 @@
+1,Rex,Cachorro,Pastor Alemão,15/03/2020,1
+2,Bob,Cachorro,Golden Retriever,10/08/2021,1
+3,Mimi,Gato,Siames,22/11/2022,2
+4,Luna,Gato,Persa,05/01/2023,3
+5,Thor,Cachorro,Labrador,12/06/2019,2

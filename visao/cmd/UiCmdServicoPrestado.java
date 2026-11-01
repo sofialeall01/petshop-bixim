@@ -16,18 +16,17 @@ public class UiCmdServicoPrestado {
     private ServicoPrestadoController controller;
     private ClienteController controllerCliente;
 
-    
-
-
     public UiCmdServicoPrestado(ServicoPrestadoController controller, ClienteController controllerCliente) {
         this.controller = controller;
         this.controllerCliente = controllerCliente;
+        this.teclado = new Scanner(System.in);
     }
 
     public void iniciar(){
         int opcao = 0;
-     do{
-          System.out.println("\n╔════════════════════════════════════════════╗");
+
+        do{
+            System.out.println("\n╔════════════════════════════════════════════╗");
             System.out.println("║       GERENCIAR SERVICOS PRESTADOS         ║");
             System.out.println("╠════════════════════════════════════════════╣");
             System.out.println("║  1 - Adicionar Servicos Prestados          ║");
@@ -41,9 +40,10 @@ public class UiCmdServicoPrestado {
             System.out.println("║  0 - Voltar ao Menu Principal              ║");
             System.out.println("╚════════════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
+            opcao = teclado.nextInt();
 
             switch (opcao) {
-                case 1: adcionar(); break;
+                case 1: adicionar(); break;
                 
                 case 2: apagar(); break;
 
@@ -63,12 +63,10 @@ public class UiCmdServicoPrestado {
                     System.out.println("Opcao invalida");
                     break;
             }
-     
-    }while(opcao !=0);
-    
-}
+        }while(opcao !=0);
+    }
 
-    private void adcionar(){
+    private void adicionar(){
        System.out.println("Informe o ID do servico prestado: \n");
        int id = teclado.nextInt();
        System.out.println("Informe o valor: ");

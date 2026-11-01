@@ -8,6 +8,9 @@ import model.ServicoPrestado;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -59,27 +62,57 @@ public class ServicoPrestadoRepository
         return false;
     }
 
-    public void carregarDados(String caminhoArquivo, PetRepository petRepository, ServicoRepository servicoRepository) {
+    public void carregarDados(String caminhoArquivo, PetRepository petRepository,
+                              ServicoRepository servicoRepository) {
+
         File arquivo = new File(caminhoArquivo);
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/uuuu")
+                .withResolverStyle(ResolverStyle.STRICT);
+
         try (Scanner scanner = new Scanner(arquivo, "UTF-8")) {
+
             while (scanner.hasNextLine()) {
+
                 String linha = scanner.nextLine();
                 String[] dados = linha.split(",");
+
                 int id = Integer.parseInt(dados[0].trim());
-                LocalDate data = LocalDate.parse(dados[1].trim());
+
+                LocalDate data = LocalDate.parse(dados[1].trim(), formato);
+
                 double valorCobrado = Double.parseDouble(dados[2].trim());
+
                 int idServico = Integer.parseInt(dados[3].trim());
+
                 int idPet = Integer.parseInt(dados[4].trim());
+
                 Pet pet = petRepository.buscarPorId(idPet);
+
                 Servico servico = servicoRepository.buscarPorId(idServico);
-                ServicoPrestado servicoPrestado = new ServicoPrestado(id,data,valorCobrado,pet,servico);
-                adicionar(servicoPrestado);
+
+                if (pet != null && servico != null) {
+
+                    ServicoPrestado servicoPrestado =
+                            new ServicoPrestado(id, data, valorCobrado, pet, servico);
+
+                    adicionar(servicoPrestado);
+
+                } else {
+                    System.out.println("Pet ou Serviço não encontrado! ID: " + id);
+                }
             }
 
             System.out.println("Dados carregados com sucesso!");
 
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado: " + e.getMessage());
+
+        } catch (DateTimeParseException e) {
+            System.out.println("Erro no formato da data: " + e.getMessage());
+
+        } catch (NumberFormatException e) {
+            System.out.println("Erro na conversão de números: " + e.getMessage());
         }
     }
 

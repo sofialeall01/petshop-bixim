@@ -15,7 +15,7 @@ public class UiCmdPet {
     private ClienteController controllerCliente;
 
     public UiCmdPet( PetController controller,ClienteController controllerCliente) {
-        teclado = new Scanner(System.in);
+        this.teclado = new Scanner(System.in);
         this.controller = controller;
         this.controllerCliente = controllerCliente;
     }
@@ -23,8 +23,8 @@ public class UiCmdPet {
 
     public void iniciar(){
         int opcao = 0;
-     do{
-          System.out.println("\n╔══════════════════════════════════════╗");
+        do{
+            System.out.println("\n╔══════════════════════════════════════╗");
             System.out.println("║            GERENCIAR PETS            ║");
             System.out.println("╠══════════════════════════════════════╣");
             System.out.println("║  1 - Adicionar Pet                   ║");
@@ -34,6 +34,7 @@ public class UiCmdPet {
             System.out.println("║  0 - Voltar ao Menu Principal        ║");
             System.out.println("╚══════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
+            opcao = teclado.nextInt();
 
             switch (opcao) {
                 case 1: adcionar(); break;
@@ -48,8 +49,7 @@ public class UiCmdPet {
                     System.out.println("Opcao invalida");
                     break;
             }
-     
-    }while(opcao !=0);
+        } while(opcao !=0);
     
 }
 

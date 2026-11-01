@@ -25,11 +25,9 @@ public class ClienteRepository
 
     public Cliente buscarPorId(int id){
        if(id != 0){
-           for (int i = 0; i <= clientes.size();i++){
+           for (int i = 0; i < clientes.size();i++){
                if (clientes.get(i).getId() == id){
                    return clientes.get(i);
-               } else{
-                   System.out.println("Cliente não existe.");
                }
            }
        }else{
@@ -40,13 +38,11 @@ public class ClienteRepository
 
     public boolean remover(int id){
         if(id != 0){
-            for (int i = 0; i <= clientes.size();i++){
+            for (int i = 0; i < clientes.size();i++){
                 if (clientes.get(i).getId() == id){
                     Cliente c = clientes.get(i);
                     clientes.remove(c);
                     return true;
-                }else{
-                    System.out.println("Cliente não existe.");
                 }
             }
         }else{
@@ -64,7 +60,6 @@ public class ClienteRepository
                 int id = Integer.parseInt(dados[0].trim());
                 String nome = dados[1].trim();
                 String telefone = dados[2].trim();
-
 
                 Cliente cliente = new Cliente(id, nome, telefone);
                 adicionar(cliente);
