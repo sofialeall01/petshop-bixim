@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import controller.ClienteController;
 import controller.PetController;
+import model.Cliente;
 import model.Pet;
 
 public class UiCmdPet {
@@ -54,31 +55,50 @@ public class UiCmdPet {
 }
 
     private void adcionar(){
-       System.out.println("Informe o ID do pet: \n");
+       System.out.println("Informe o ID do pet: ");
        int id = teclado.nextInt();
-       System.out.println("Informe o nome do pet: \n");
+       System.out.println("Informe o nome do pet: ");
        String nome = teclado.next();
-       System.out.println("Informe a raca do pet: \n");
+       System.out.println("Informe a espécie do pet: ");
        String especie = teclado.next();
-       System.out.println("Informe a raca do pet: \n");
+       System.out.println("Informe a raça do pet: ");
        String raca = teclado.next();
-       System.out.println("Informe a data de nascimneto do pet: ");
-       String data = teclado.next();
-       System.out.println("Informe o id do cliente: \n");
+
+       DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+       LocalDate dataFormatada = null;
+
+        while (dataFormatada == null) {
+            try {
+                System.out.println("Informe a data de nascimento (dd/MM/yyyy):");
+                String data = teclado.next();
+
+                dataFormatada = LocalDate.parse(data, formatador);
+
+            } catch (Exception e) {
+                System.out.println("Data inválida! Tente novamente.");
+            }
+        }
+       System.out.println("Informe o id do cliente: ");
        int idCliente = teclado.nextInt();
-       System.out.println("Informe o nome do cliente: \n");
-       String nomeCliente = teclado.next();
-       System.out.println("Informe o telefone do cliente: \n");
-       String telefone = teclado.next();
 
-        //formatando a data
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dataFormatada = LocalDate.parse(data, formatador);
+        Cliente cliente = controllerCliente.buscar(idCliente);
+        if(cliente == null){
+            System.out.println("Informe o nome do cliente:");
+            String nomeCliente = teclado.next();
 
-        // como o no PetConttroller o metodo adcionar espera somente o id do cliente eu preciso
-        //primeiro adcionar o cliente, assim dentro do metodo adcionar no PetController ele buscar esse cliente
-        //pelo id e depois relaciona ele ao pet
-        controllerCliente.adcionar(idCliente,nomeCliente,telefone);
+            System.out.println("Informe o telefone do cliente ((dd) xxxxx-xxxx):");
+
+            teclado.nextLine(); // Consome a quebra de linha anterior
+
+            String telefone = teclado.nextLine();
+
+            while (!telefone.matches("\\(\\d{2}\\) \\d{5}-\\d{4}")) {
+                System.out.println("Telefone inválido! Tente novamente:");
+                telefone = teclado.nextLine();
+            }
+
+            controllerCliente.adicionar(idCliente, nomeCliente, telefone);
+        }
         controller.adicionar(id, nome, especie, raca, dataFormatada, idCliente);
     }
 

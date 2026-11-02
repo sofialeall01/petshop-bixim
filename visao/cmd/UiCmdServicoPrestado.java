@@ -40,7 +40,14 @@ public class UiCmdServicoPrestado {
             System.out.println("║  0 - Voltar ao Menu Principal              ║");
             System.out.println("╚════════════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
-            opcao = teclado.nextInt();
+            String entrada = teclado.nextLine();
+
+            try {
+                opcao = Integer.parseInt(entrada);
+            } catch (NumberFormatException e) {
+                System.out.println("Digite apenas números!");
+                opcao = -1;
+            }
 
             switch (opcao) {
                 case 1: adicionar(); break;
@@ -143,20 +150,19 @@ public class UiCmdServicoPrestado {
         }
     }
 
-    private void animaisDoDono(){
+    private void animaisDoDono() {
         System.out.println("Informe o nome do cliente: ");
-        String nome = teclado.next();
+        String nome = teclado.nextLine();
 
         ArrayList<Pet> encontrados = controller.buscarBichosPorNomeDono(nome);
-        if (encontrados != null) {
+
+        if (!encontrados.isEmpty()) {
             for (int index = 0; index < encontrados.size(); index++) {
                 System.out.println(encontrados.get(index).toString());
-                
             }
-        }else{
-            System.out.println("Nenhum pet encontrado. ");
+        } else {
+            System.out.println("Nenhum pet encontrado.");
         }
-
     }
 
     private void maiorValor(){
@@ -166,6 +172,7 @@ public class UiCmdServicoPrestado {
         Cliente cliente = controllerCliente.buscar(id);
         double maiorValor = controller.maiorValorPorCliente(cliente);
         System.out.println("Servico de maior valor : "+ maiorValor +" R$");
+        teclado.nextLine();
     }
 
     private void servicosDoCliente(){
@@ -181,5 +188,6 @@ public class UiCmdServicoPrestado {
         }else{
             System.out.println("Nenhum servico prestado encontrado");
         }
+        teclado.nextLine();
     }
 }

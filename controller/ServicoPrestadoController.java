@@ -67,7 +67,7 @@ public class ServicoPrestadoController {
         ArrayList<Pet> petsCliente = new ArrayList<>();
 
         for (int index = 0; index < pets.size(); index++) {
-            if (pets.get(index).getCliente().getNome() == nome) {
+            if (pets.get(index).getCliente().getNome().equalsIgnoreCase(nome)) {
                 petsCliente.add(pets.get(index));
             }
         }

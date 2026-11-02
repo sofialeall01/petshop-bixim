@@ -24,7 +24,7 @@ public class ClienteController {
         return this.repository.remover(id);
     }
 
-    public void adcionar( int id, String nome,String telefone){
+    public void adicionar( int id, String nome,String telefone){
         Cliente c1 = new Cliente(id, nome, telefone);
         this.repository.adicionar(c1);
     }

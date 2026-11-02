@@ -23,10 +23,10 @@ public class UiCmdServico {
             System.out.println("\n╔══════════════════════════════════════╗");
             System.out.println("║          GERENCIAR SERVICOS          ║");
             System.out.println("╠══════════════════════════════════════╣");
-            System.out.println("║  1 - Adicionar Pet                   ║");
-            System.out.println("║  2 - Remover Pet                     ║");
-            System.out.println("║  3 - Listar Pets                     ║");
-            System.out.println("║  4 - Buscar Pet                      ║");
+            System.out.println("║  1 - Adicionar Serviço               ║");
+            System.out.println("║  2 - Remover Serviço                 ║");
+            System.out.println("║  3 - Listar Serviços                 ║");
+            System.out.println("║  4 - Buscar Serviço                  ║");
             System.out.println("║  0 - Voltar ao Menu Principal        ║");
             System.out.println("╚══════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
@@ -60,7 +60,7 @@ public class UiCmdServico {
     }
 
     private void apagar(){
-        System.out.println("Informe o ID do servico que sera apagado: \n");
+        System.out.println("Informe o ID do servico que sera apagado: ");
         int id = teclado.nextInt();
 
         boolean resultado = controller.remover(id);
