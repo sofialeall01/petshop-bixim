@@ -1,5 +1,6 @@
 package repository;
 
+import enumerator.Especie;
 import model.Cliente;
 import model.Pet;
 
@@ -66,7 +67,9 @@ public class PetRepository
 
                 int id = Integer.parseInt(dados[0].trim());
                 String nome = dados[1].trim();
-                String especie = dados[2].trim();
+                Especie especie = Especie.valueOf(
+                        dados[2].trim().toUpperCase()
+                );
                 String raca = dados[3].trim();
 
                 LocalDate nascimento = LocalDate.parse(dados[4].trim(), formato);

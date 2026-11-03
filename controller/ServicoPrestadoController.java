@@ -15,92 +15,47 @@ import repository.ServicoRepository;
 public class ServicoPrestadoController {
     private PetRepository repositoryPet;
     private ServicoRepository repositoryServico;
-    private ServicoPrestadoRepository repository;
+    private service.ServicoPrestadoService service;
 
-    
 
     public ServicoPrestadoController(PetRepository repositoryPet, ServicoRepository repositoryServico,
-            ServicoPrestadoRepository repository) {
+                                     service.ServicoPrestadoService service) {
         this.repositoryPet = repositoryPet;
         this.repositoryServico = repositoryServico;
-        this.repository = repository;
+        this.service = service;
     }
 
     public double maiorValorPorCliente(Cliente cliente){
-        ArrayList<ServicoPrestado> servicosCliente = buscarPorCliente(cliente);
-        double maiorGasto = 0;
-        for (int i = 0; i < servicosCliente.size(); i++) {
-                if (servicosCliente.get(i).getValorCobrado() > maiorGasto) {
-                    maiorGasto = servicosCliente.get(i).getValorCobrado();
-                }
-            }
-            return maiorGasto;
-      }
+       return service.maiorValorPorCliente(cliente);
+    }
     
     public ArrayList<ServicoPrestado> buscarPorCliente(Cliente cliente){
-
-    ArrayList<ServicoPrestado> servicos = repository.listar();
-    ArrayList<ServicoPrestado> servicosCliente = new ArrayList<>();
-
-    for (int i = 0; i < servicos.size(); i++) {
-     // verificamos se o serviço tem um pet e se esse pet tem um cliente
-        if(servicos.get(i).getPet() != null && servicos.get(i).getPet().getCliente() != null){
-            if (servicos.get(i).getPet().getCliente().equals(cliente)){
-                servicosCliente.add(servicos.get(i));
-            }
-        }
-
-    }
-    return servicosCliente;
+        return service.buscarPorCliente(cliente);
     }
 
     public boolean removerServicoPrestado(int id){
-        return repository.remover(id);
+        return service.remover(id);
     }
 
     public ServicoPrestado buscar(int id){
-        ServicoPrestado sp = repository.buscarPorId(id);
-        if(sp == null){
-            System.out.println("Servico prestado nao encontrado!");
-            return null; 
-
-        }
-        return sp;
+       return service.buscar(id);
     }
 
     public ArrayList<Pet> buscarBichosPorNomeDono(String nome){
-        ArrayList<Pet> pets = repositoryPet.listar();
-        ArrayList<Pet> petsCliente = new ArrayList<>();
-
-        for (int index = 0; index < pets.size(); index++) {
-            if (pets.get(index).getCliente().getNome().equalsIgnoreCase(nome)) {
-                petsCliente.add(pets.get(index));
-            }
-        }
-        return petsCliente;
+       return service.buscarBichosPorNomeDono(nome);
     }
     
     public ArrayList<ServicoPrestado> buscarPorPerido( LocalDate dataInicial , LocalDate dataFinal){
-        ArrayList<ServicoPrestado> servicos = repository.listar();
-        ArrayList<ServicoPrestado> servicosEncontrados = new ArrayList<>();
-
-       for (int i = 0; i < servicos.size(); i++) {
-        //Se a data do serviço não é anterior à data inicial (before) E não é posterior data final (after), significa que ela está dentro do período
-        if (!servicos.get(i).getData().isBefore(dataInicial) && !servicos.get(i).getData().isAfter(dataFinal) ) {
-            servicosEncontrados.add(servicos.get(i));
-        }
-       }
-       return servicosEncontrados;
+       return service.buscarPorPerido(dataInicial, dataFinal);
     }
 
-    public void adcionar(int id, double valorCobrado, LocalDate data,int idServico, int idPet){
-        Pet pet = repositoryPet.buscarPorId(idPet);
-        Servico servico = repositoryServico.buscarPorId(idServico);
-        ServicoPrestado sp = new ServicoPrestado(id,data,valorCobrado, pet, servico);
-        repository.adicionar(sp);
+    public void adicionar(int id, double valorCobrado,
+                          LocalDate data, int idServico, int idPet) {
+
+        service.adicionar(id, valorCobrado, data, idServico, idPet);
     }
 
     public ArrayList<ServicoPrestado> listar(){
-        return repository.listar();
+        return service.listar();
     }
 }

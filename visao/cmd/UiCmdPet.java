@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import controller.ClienteController;
 import controller.PetController;
+import enumerator.Especie;
 import model.Cliente;
 import model.Pet;
 
@@ -38,7 +39,7 @@ public class UiCmdPet {
             opcao = teclado.nextInt();
 
             switch (opcao) {
-                case 1: adcionar(); break;
+                case 1: adicionar(); break;
                 
                 case 2: apagar(); break;
 
@@ -54,15 +55,35 @@ public class UiCmdPet {
     
 }
 
-    private void adcionar(){
+    private void adicionar(){
        System.out.println("Informe o ID do pet: ");
        int id = teclado.nextInt();
        System.out.println("Informe o nome do pet: ");
        String nome = teclado.next();
-       System.out.println("Informe a espécie do pet: ");
-       String especie = teclado.next();
-       System.out.println("Informe a raça do pet: ");
-       String raca = teclado.next();
+        // Listar as espécies do enum
+        Especie[] especies = Especie.values();
+
+        System.out.println("Escolha a espécie do pet:");
+
+        for (int i = 0; i < especies.length; i++) {
+            System.out.println((i + 1) + " - " + especies[i]);
+        }
+
+        int opcaoEspecie;
+
+        do {
+            System.out.println("Informe a opção: ");
+            opcaoEspecie = teclado.nextInt();
+
+            if (opcaoEspecie < 1 || opcaoEspecie > especies.length) {
+                System.out.println("Opção inválida! Tente novamente.");
+            }
+
+        } while (opcaoEspecie < 1 || opcaoEspecie > especies.length);
+
+        Especie especie = especies[opcaoEspecie - 1];
+        System.out.println("Informe a raça do pet: ");
+        String raca = teclado.next();
 
        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/uuuu");
        LocalDate dataFormatada = null;

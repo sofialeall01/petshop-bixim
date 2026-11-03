@@ -27,6 +27,7 @@ public class Main {
         PetRepository petRepository = new PetRepository(pets);
         ServicoRepository servicoRepository = new ServicoRepository();
         ServicoPrestadoRepository servicoPrestadoRepository = new ServicoPrestadoRepository(servicoPrestados);
+        service.ServicoPrestadoService servicoPrestadoService = new service.ServicoPrestadoService(servicoPrestadoRepository,petRepository, servicoRepository);
 
         clienteRepository.carregarDados("dados/clientes.txt");
         petRepository.carregarDados("dados/pets.txt", clienteRepository);
@@ -36,7 +37,7 @@ public class Main {
         ClienteController clienteController = new ClienteController(clienteRepository);
         PetController petController = new PetController(petRepository, clienteRepository);
         ServicoController servicoController = new ServicoController(servicoRepository);
-        ServicoPrestadoController servicoPrestadoController = new ServicoPrestadoController(petRepository, servicoRepository ,servicoPrestadoRepository);
+        ServicoPrestadoController servicoPrestadoController = new ServicoPrestadoController(petRepository, servicoRepository ,servicoPrestadoService);
 
         UiCmdCliente uiCmdCliente = new UiCmdCliente(clienteController);
         UiCmdPet uiCmdPet = new UiCmdPet(petController, clienteController);

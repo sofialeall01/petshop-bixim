@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b691e6e7-a3c0-4961-876a-fbaf45f3cf00" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/enumerator/Especie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ServicoPrestadoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ServicoPrestadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ServicoPrestadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dados/pets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dados/pets.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/controller/ClienteController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/controller/PetController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/controller/ServicoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/controller/ServicoPrestadoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/dados/clientes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/dados/pets.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/dados/servicos.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/dados/servicosPrestados.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/model/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/model/Pet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/model/Servico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/model/ServicoPrestado.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/petshop-bixim.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/repository/ClienteRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/repository/PetRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/repository/ServicoPrestadoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/repository/ServicoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/visao/cmd/UI_Cmd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/visao/cmd/UiCmdCliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/visao/cmd/UiCmdPet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/visao/cmd/UiCmdServico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/petshop-bixim/visao/cmd/UiCmdServicoPrestado.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/repository/PetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visao/cmd/UiCmdPet.java" beforeDir="false" afterPath="$PROJECT_DIR$/visao/cmd/UiCmdPet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visao/cmd/UiCmdServicoPrestado.java" beforeDir="false" afterPath="$PROJECT_DIR$/visao/cmd/UiCmdServicoPrestado.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3L6hBU2NR5oKEHm5ILnGAbci2xQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="petshop-bixim" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b691e6e7-a3c0-4961-876a-fbaf45f3cf00" name="Changes" comment="" />
+      <created>1792780312565</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792780312565</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

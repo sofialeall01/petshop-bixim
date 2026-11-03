@@ -93,7 +93,7 @@ public class UiCmdServicoPrestado {
         // como o no ServicoPrestadoConttroller o metodo adcionar espera somente o id do pet e o id do servico,
         // dentro do metodo adcionar no ServicoPrestadoConttroller ele buscar esse pet e o servico
         //pelo id e depois relaciona ele ao servico prestado
-        controller.adcionar(id, valor, dataFormatada, idServico, idPet);
+        controller.adicionar(id, valor, dataFormatada, idServico, idPet);
     }
 
     private void apagar(){

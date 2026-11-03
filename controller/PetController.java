@@ -1,5 +1,6 @@
 package controller;
 
+import enumerator.Especie;
 import model.Cliente;
 import model.Pet;
 import repository.ClienteRepository;
@@ -18,7 +19,7 @@ public class PetController {
         this.clienteRepository = clienteRepository;
     }
 
-    public void adicionar(int id, String nome, String especie, String raca, LocalDate nascimento, int idCliente){
+    public void adicionar(int id, String nome, Especie especie, String raca, LocalDate nascimento, int idCliente){
          Cliente dono = clienteRepository.buscarPorId(idCliente);
         Pet pet = new Pet(id, nome, especie, raca, dono, nascimento);
         this.repository.adicionar(pet);
