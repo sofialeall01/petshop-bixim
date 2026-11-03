@@ -46,6 +46,11 @@ public class UiCmdCliente {
     private void apagar(){
         System.out.println("Informe o ID do cliente que sera apagado: \n");
         int id = teclado.nextInt();
+        teclado.nextLine(); //limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         boolean resultado = controller.remover(id);
         if (resultado == true) {
@@ -66,6 +71,11 @@ public class UiCmdCliente {
     private void buscar(){
         System.out.println("Informe o ID do cliente: ");
         int id = teclado.nextInt();
+        teclado.nextLine(); //limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         Cliente encontrado = controller.buscar(id);
         if(encontrado != null){

@@ -62,6 +62,11 @@ public class UiCmdServico {
     private void apagar(){
         System.out.println("Informe o ID do servico que sera apagado: ");
         int id = teclado.nextInt();
+        teclado.nextLine(); //limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         boolean resultado = controller.remover(id);
         if (resultado == true) {
@@ -82,7 +87,11 @@ public class UiCmdServico {
     private void buscar(){
         System.out.println("Informe o ID do servico: ");
         int id = teclado.nextInt();
-
+        teclado.nextLine(); //limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
         Servico encontrado = controller.buscar(id);
         if(encontrado != null){
             System.out.println(encontrado.toString());

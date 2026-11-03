@@ -30,8 +30,6 @@ public class ClienteRepository
                    return clientes.get(i);
                }
            }
-       }else{
-           System.out.println("O id não pode ser zero");
        }
        return null;
     }
@@ -45,8 +43,6 @@ public class ClienteRepository
                     return true;
                 }
             }
-        }else{
-            System.out.println("O id não pode ser zero");
         }
         return false;
     }

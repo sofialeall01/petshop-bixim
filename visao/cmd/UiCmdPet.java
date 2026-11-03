@@ -80,6 +80,8 @@ public class UiCmdPet {
         }
        System.out.println("Informe o id do cliente: ");
        int idCliente = teclado.nextInt();
+       teclado.nextLine(); //limpa o buffer
+
 
         Cliente cliente = controllerCliente.buscar(idCliente);
         if(cliente == null){
@@ -105,6 +107,11 @@ public class UiCmdPet {
     private void apagar(){
         System.out.println("Informe o ID do pet que sera apagado: \n");
         int id = teclado.nextInt();
+        teclado.nextLine(); //limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         boolean resultado = controller.remover(id);
         if (resultado == true) {
@@ -125,6 +132,11 @@ public class UiCmdPet {
     private void buscar(){
         System.out.println("Informe o ID do pet: ");
         int id = teclado.nextInt();
+        teclado.nextLine(); //limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         Pet encontrado = controller.buscar(id);
         if(encontrado != null){

@@ -32,32 +32,24 @@ public class ServicoPrestadoRepository
 
     public ServicoPrestado buscarPorId(int id){
         if(id != 0){
-            for (int i = 0; i <= servicoPrestados.size();i++){
+            for (int i = 0; i < servicoPrestados.size();i++){
                 if (servicoPrestados.get(i).getId() == id){
                     return servicoPrestados.get(i);
-                } else{
-                    System.out.println("Serviço prestado não existe.");
-                }
+                } 
             }
-        }else{
-            System.out.println("O id não pode ser zero");
         }
         return null;
     }
 
     public boolean remover(int id){
         if(id != 0){
-            for (int i = 0; i <= servicoPrestados.size();i++){
+            for (int i = 0; i < servicoPrestados.size();i++){
                 if (servicoPrestados.get(i).getId() == id){
                     ServicoPrestado p = servicoPrestados.get(i);
                     servicoPrestados.remove(p);
                     return true;
-                }else{
-                    System.out.println("Serviço prestado não existe.");
                 }
             }
-        }else{
-            System.out.println("O id não pode ser zero");
         }
         return false;
     }

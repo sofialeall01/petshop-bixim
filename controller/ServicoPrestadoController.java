@@ -7,6 +7,7 @@ import model.Cliente;
 import model.Pet;
 import model.Servico;
 import model.ServicoPrestado;
+import repository.ClienteRepository;
 import repository.PetRepository;
 import repository.ServicoPrestadoRepository;
 import repository.ServicoRepository;
@@ -26,7 +27,6 @@ public class ServicoPrestadoController {
     }
 
     public double maiorValorPorCliente(Cliente cliente){
-    
         ArrayList<ServicoPrestado> servicosCliente = buscarPorCliente(cliente);
         double maiorGasto = 0;
         for (int i = 0; i < servicosCliente.size(); i++) {
@@ -59,7 +59,13 @@ public class ServicoPrestadoController {
     }
 
     public ServicoPrestado buscar(int id){
-        return repository.buscarPorId(id);
+        ServicoPrestado sp = repository.buscarPorId(id);
+        if(sp == null){
+            System.out.println("Servico prestado nao encontrado!");
+            return null; 
+
+        }
+        return sp;
     }
 
     public ArrayList<Pet> buscarBichosPorNomeDono(String nome){

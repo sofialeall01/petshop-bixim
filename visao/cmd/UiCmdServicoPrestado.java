@@ -40,14 +40,9 @@ public class UiCmdServicoPrestado {
             System.out.println("║  0 - Voltar ao Menu Principal              ║");
             System.out.println("╚════════════════════════════════════════════╝");
             System.out.print("Escolha uma opção: ");
-            String entrada = teclado.nextLine();
-
-            try {
-                opcao = Integer.parseInt(entrada);
-            } catch (NumberFormatException e) {
-                System.out.println("Digite apenas números!");
-                opcao = -1;
-            }
+            opcao = teclado.nextInt();
+            teclado.nextLine(); //limpar o buffer
+            
 
             switch (opcao) {
                 case 1: adicionar(); break;
@@ -76,10 +71,13 @@ public class UiCmdServicoPrestado {
     private void adicionar(){
        System.out.println("Informe o ID do servico prestado: \n");
        int id = teclado.nextInt();
+       teclado.nextLine(); // Limpa o buffer
        System.out.println("Informe o valor: ");
        double valor = teclado.nextDouble();
+       teclado.nextLine(); // Limpa o buffer
        System.out.println("Informe a data de realizacao: ");
        String data = teclado.next();
+       
 
         //formatando a data
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -87,8 +85,10 @@ public class UiCmdServicoPrestado {
 
         System.out.println("Informe o ID do pet vinculado ao servico prestado: ");
         int idPet = teclado.nextInt();
+        teclado.nextLine(); // Limpa o buffer
         System.out.println("Infome o ID do servico realizado: ");
         int idServico = teclado.nextInt();
+        teclado.nextLine(); // Limpa o buffer
 
         // como o no ServicoPrestadoConttroller o metodo adcionar espera somente o id do pet e o id do servico,
         // dentro do metodo adcionar no ServicoPrestadoConttroller ele buscar esse pet e o servico
@@ -99,7 +99,11 @@ public class UiCmdServicoPrestado {
     private void apagar(){
         System.out.println("Informe o ID do servico prestado que sera apagado: \n");
         int id = teclado.nextInt();
-
+        teclado.nextLine(); // Limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
         boolean resultado = controller.removerServicoPrestado(id);
         if (resultado == true) {
             System.out.println("Servico prestado apagado com sucesso!");
@@ -119,7 +123,11 @@ public class UiCmdServicoPrestado {
     private void buscar(){
         System.out.println("Informe o ID do servico prestado: ");
         int id = teclado.nextInt();
-
+        teclado.nextLine(); // Limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
         ServicoPrestado encontrado = controller.buscar(id);
         if(encontrado != null){
             System.out.println(encontrado.toString());
@@ -129,24 +137,24 @@ public class UiCmdServicoPrestado {
     }
 
     private void servicosPorPeriodo(){
-        System.out.println("Informe a data para o intervalo inicial: ");
-        String dataInicial = teclado.next();
-        System.out.println("Informe a data para o intervalo final: ");
-        String dataFinal = teclado.next();
+        System.out.println("Informe a data para o intervalo inicial (DD/MM/AAAA): ");
+        String dataInicial = teclado.nextLine(); 
 
-        //formatando a data
+        System.out.println("Informe a data para o intervalo final (DD/MM/AAAA): ");
+        String dataFinal = teclado.nextLine(); 
+
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataInicialFormatada = LocalDate.parse(dataInicial, formatador);
         LocalDate dataFinalFormatada = LocalDate.parse(dataFinal, formatador);
 
         ArrayList<ServicoPrestado> encontrados = controller.buscarPorPerido(dataInicialFormatada, dataFinalFormatada);
-        if (encontrados != null) {
+        
+        if (encontrados != null && !encontrados.isEmpty()) {
             for (int index = 0; index < encontrados.size(); index++) {
                 System.out.println(encontrados.get(index).toString());
-                
             }
-        }else{
-            System.out.println("Nenhum servico prestado encontrado. ");
+        } else {
+            System.out.println("Nenhum servico prestado encontrado.");
         }
     }
 
@@ -168,18 +176,35 @@ public class UiCmdServicoPrestado {
     private void maiorValor(){
         System.out.println("Informe o ID co cliente: ");
         int id = teclado.nextInt();
+        teclado.nextLine(); // Limpa o buffer
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         Cliente cliente = controllerCliente.buscar(id);
+        if (cliente == null) {
+            System.out.println("Cliente nao encontrado!");
+            return;
+        }
         double maiorValor = controller.maiorValorPorCliente(cliente);
         System.out.println("Servico de maior valor : "+ maiorValor +" R$");
-        teclado.nextLine();
+        
     }
 
     private void servicosDoCliente(){
         System.out.println("Infome o ID do cliente: ");
         int id = teclado.nextInt();
+        if (id == 0) {
+            System.out.println("Insira um ID diferente de 0");
+            return;
+        }
 
         Cliente cliente = controllerCliente.buscar(id);
+        if (cliente == null) {
+            System.out.println("Cliente nao encontrado!");
+            return;
+        }
         ArrayList<ServicoPrestado> encontrados = controller.buscarPorCliente(cliente);
         if (encontrados != null) {
             for (int i = 0; i < encontrados.size(); i++) {

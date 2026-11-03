@@ -132,7 +132,7 @@ public class ServicoPrestado {
 	@Override
 	public String toString() {
 		 return "ServicoPrestado id:" + id + ", servico:" + servico + ", data:" + data + ", valorCobrado:"
-				+ valorCobrado + ", pet:" + pet + "]";
+				+ valorCobrado + ", pet:" + pet + "";
 	}
     
     

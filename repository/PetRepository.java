@@ -34,8 +34,6 @@ public class PetRepository
                     return pets.get(i);
                 }
             }
-        }else{
-            System.out.println("O id não pode ser zero");
         }
         return null;
     }
@@ -49,8 +47,6 @@ public class PetRepository
                     return true;
                 }
             }
-        }else{
-            System.out.println("O id não pode ser zero");
         }
         return false;
     }
